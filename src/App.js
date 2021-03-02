@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
-import Search from './components/Search';
-import Tide from './components/Tide';
+import TideFetch from './components/TideFetch';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="app__title">Tide Forescast</h1>
-      <Search />
-      <Tide />
+    <div className="app">
+      <TideFetch />
     </div>
   );
 }
