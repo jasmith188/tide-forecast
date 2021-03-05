@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { usePosition } from './usePosition';
+import { usePosition } from 'use-position';
 import { Row, Col, FormControl, Button } from 'react-bootstrap';
 
 function CitySelector() {
@@ -16,7 +16,7 @@ function CitySelector() {
 
   const onSearch = () => {
     fetch(
-      `https://api.worldweatheronline.com/premium/v1/marine.ashx?key=351d60752706416885b203048210103&q=${coords}&format=json&includelocation=yes&tide=yes`
+      `https://api.worldweatheronline.com/premium/v1/marine.ashx?key=351d60752706416885b203048210103&q=${coords.latitude},${coords.longitude}&format=json&includelocation=yes&tide=yes`
     )
       .then((response) => response.json())
       .then((result) => console.log(result));
@@ -48,7 +48,7 @@ function CitySelector() {
             // update city value with the user's input
             onChange={(event) => setCoords(event.target.value)}
             // value will be the currently selected city
-            value={city}
+            value={(29.215968999999998, -81.09331519999999)}
             onKeyDown={onKeyDown}
           />
         </Col>

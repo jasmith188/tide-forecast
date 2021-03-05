@@ -13,7 +13,7 @@ const Tide = () => {
 
   useEffect(() => {
     fetch(
-      'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=351d60752706416885b203048210103&q=29.21,-81.02&format=json&includelocation=yes&tide=yes'
+      `https://api.worldweatheronline.com/premium/v1/marine.ashx?key=351d60752706416885b203048210103&q=29.21,-81.02&format=json&includelocation=yes&tide=yes`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -30,6 +30,21 @@ const Tide = () => {
         setFourthTime(data.data.weather[0].tides[0].tide_data[3].tideTime);
       });
   }, []);
+
+  // const getLocation = () => {
+  //   if (navigator.geolocation) {
+  //     this.getPosition()
+  //       .then((position) => {
+  //         this.getWeather(position.coords.latitude, position.coords.longitude);
+  //       })
+  //       .catch((err) => {
+  //         this.getWeather(28.67, 77.22);
+  //         alert('You have disabled location service.');
+  //       });
+  //   } else {
+  //     alert('Geolocation not available');
+  //   }
+  // };
 
   return (
     <div className="tide">
