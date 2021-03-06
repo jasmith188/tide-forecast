@@ -1,0 +1,14 @@
+.currentWeather__card {
+  border-width: 2px;
+  border-style: solid;
+  color: black;
+}
+
+.currentWeather__card > p {
+  font-size: 34px;
+}
+
+.currentWeather__icon {
+  height: 150px;
+  width: auto;
+}

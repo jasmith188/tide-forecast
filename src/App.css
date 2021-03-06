@@ -1,0 +1,16 @@
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  /* padding: 20px; */
+}
+
+.app__right {
+  flex: 0.4;
+}
+
+
+@media (max-width: 590px) {
+    .app {
+      flex-direction: column;
+    }
+  }
