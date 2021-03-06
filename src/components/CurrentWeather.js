@@ -12,7 +12,7 @@ const CurrentWeather = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       fetch(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${APIKEY}&units=imperial`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${APIKEY}&units=imperial`
       )
         .then((res) => res.json())
         .then((data) => {

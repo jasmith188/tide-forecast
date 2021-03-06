@@ -46,7 +46,6 @@ const Tide = ({ lat, lng }) => {
 
   return (
     <div className="tide">
-     
       <br />
       <div className="tide__card">
         <h2 className="tide__tideHeight">{firstTide} Tide</h2>
@@ -61,7 +60,7 @@ const Tide = ({ lat, lng }) => {
           <h3 className="tide__tideTime">{secondTime}</h3>
         </div>
       </div>
-      
+
       <div>
         <div className="tide__card">
           <h2 className="tide__tideHeight">{thirdTide} Tide</h2>
@@ -69,7 +68,7 @@ const Tide = ({ lat, lng }) => {
           <h3 className="tide__tideTime">{thirdTime}</h3>
         </div>
       </div>
-     
+
       <div>
         <div className="tide__card">
           <h2 className="tide__tideHeight">{fourthTide} Tide</h2>
