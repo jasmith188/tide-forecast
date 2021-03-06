@@ -5,6 +5,7 @@ let APIKEY = 'a23515e97824cfc37248b2f2e48c0c37';
 
 const FourDayForecast = () => {
   const [currentTemp, setCurrentTemp] = useState('');
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       fetch(
@@ -14,18 +15,15 @@ const FourDayForecast = () => {
         .then((data) => {
           console.log(data);
           setCurrentTemp();
-        });
+        })
+        .catch((error) => console.log('error', error));
     });
   });
   return (
     <div className="fourDayForecast">
       <div className="fourDayForecast__title">4 Day Forecast</div>
       <div>
-        <CurrentWeather />
-        <CurrentWeather />
-        <CurrentWeather />
-        <CurrentWeather />
-        <CurrentWeather />
+       
       </div>
     </div>
   );
