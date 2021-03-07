@@ -8,17 +8,16 @@ import TideFetch from './components/TideFetch';
 function App() {
   return (
     <div className="app">
-      <div className="app__left">
-        <TideFetch />
-      </div>
       <div className="app__right">
-        <div className="app__header">
-          <h1 className="tide__title">TideCast</h1>
-          <h3>Here You Can Find Tide Types, Date and Time </h3>
-          <h3>In Your Local Area</h3>
-          <CurrentWeather />
-          {/* <FiveDayForecast /> */}
-        </div>
+        <div className="app__header" />
+        <h1 className="app__title">TideCast</h1>
+        <CurrentWeather />
+      </div>
+      <div className="app__left">
+        <div />
+        <h3 className="app__tideHeader">Check out your Local Tide Info!</h3>
+        <TideFetch />
+        {/* <FiveDayForecast /> */}
       </div>
       {/* <CitySelector /> */}
     </div>

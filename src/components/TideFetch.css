@@ -1,13 +1,8 @@
 .tide {
   /* padding-left: 10px; */
-  padding-top: 80px;
-}
-
-.tide__title {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 40px;
+  justify-content: center;
   text-align: center;
+  padding-top: 20px;
 }
 
 .tide__card {
@@ -18,6 +13,7 @@
   text-align: center;
   margin-bottom: 20px;
   border-radius: 10px 10px 10px 10px;
+  padding: 20px 20px 20px 20px;
 }
 .tide__tideTime {
   color: red;
@@ -27,7 +23,7 @@
 .tide__tideHeight {
   padding-top: 15px;
   padding-bottom: 10px;
-  text-transform: initial;
+  text-transform: capitalize;
 }
 
 .tide__tideDate {

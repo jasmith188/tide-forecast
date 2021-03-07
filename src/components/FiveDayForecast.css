@@ -1,0 +1,13 @@
+.fourDayForecast {
+  /* display: flex; */
+}
+
+.fourDayForecast__card {
+  display: inline-block;
+  justify-content: space-between;
+  border-width: 2px;
+  border-style: solid;
+  color: black;
+  margin-right: 25px;
+  text-align: center;
+}

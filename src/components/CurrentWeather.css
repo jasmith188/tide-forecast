@@ -1,11 +1,31 @@
 .currentWeather__card {
-  border-width: 2px;
+  border-width: 4px;
   border-style: solid;
   color: black;
+  text-align: center;
+  margin-top: 15px;
+  border-radius: 10px 10px 10px 10px;
+  padding: 20px 20px 20px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.currentWeather__title {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.currentWeather__card > h2 {
+  font-weight: bolder;
 }
 
 .currentWeather__card > p {
-  font-size: 34px;
+  font-size: 25px;
+  padding-bottom: 15px;
+  text-transform: capitalize;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .currentWeather__icon {
