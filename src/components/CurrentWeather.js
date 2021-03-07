@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './CurrentWeather.css';
-import { APIKEY, API_BASE_URL } from '../apis/config';
+import { APIKEY, API_BASE_URL, YOUR_ACCESS_KEY } from '../apis/config';
 
 // let APIKEY = 'f125c765561a0103d94223d5fd98ce93';
 
@@ -10,21 +10,21 @@ const CurrentWeather = () => {
   const [currentTemp, setCurrentTemp] = useState('');
   const [feelsLike, setFeelsLike] = useState('');
   const [description, setDescription] = useState('');
-  // const [error, setError] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       fetch(
-        `${API_BASE_URL}/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${APIKEY}&units=imperial`
+        `http://api.weatherstack.com/current?access_key=da3519b8084af6fd6aab249e61aa62f0&query=${position.coords.latitude},${position.coords.longitude}&units=f`
       )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          setCity(data.name);
-          setCurrentIcon(data.weather[0].icon);
-          setCurrentTemp(data.main.temp);
-          setFeelsLike(data.main.feels_like);
-          setDescription(data.weather[0].description);
+          setCity(data.location.name);
+          setCurrentIcon(data.current.weather_icons);
+          setCurrentTemp(data.current.temperature);
+          setFeelsLike(data.current.feelslike);
+          setDescription(data.current.weather_descriptions[0]);
         })
         .catch((error) => console.log('error', error));
     });
@@ -37,7 +37,8 @@ const CurrentWeather = () => {
         <h2 className="currentWeather__city">📍{city}</h2>
         <img
           className="currentWeather__icon"
-          src={`https://openweathermap.org/img/w/${currentIcon}.png`}
+          // src={`https://openweathermap.org/img/w/${currentIcon}.png`}
+          src={currentIcon}
           alt="icon right here"
         />
         <p>Current Temperature: {Math.round(currentTemp)} F</p>
