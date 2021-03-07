@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CurrentWeather.css';
 import { APIKEY, API_BASE_URL, YOUR_ACCESS_KEY } from '../apis/config';
+import axios from 'axios';
 
 // let APIKEY = 'f125c765561a0103d94223d5fd98ce93';
 
@@ -14,19 +15,19 @@ const CurrentWeather = () => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      fetch(
-        `http://api.weatherstack.com/current?access_key=da3519b8084af6fd6aab249e61aa62f0&query=${position.coords.latitude},${position.coords.longitude}&units=f`
-      )
-        .then((res) => res.json())
+      axios
+        .get(
+          `http://api.weatherstack.com/current?access_key=da3519b8084af6fd6aab249e61aa62f0&query=${position.coords.latitude},${position.coords.longitude}&units=f`
+        )
+        // .then((res) => )
         .then((data) => {
           console.log(data);
-          setCity(data.location.name);
-          setCurrentIcon(data.current.weather_icons);
-          setCurrentTemp(data.current.temperature);
-          setFeelsLike(data.current.feelslike);
-          setDescription(data.current.weather_descriptions[0]);
-        })
-        .catch((error) => console.log('error', error));
+          setCity(data.data.location.name);
+          setCurrentIcon(data.data.current.weather_icons);
+          setCurrentTemp(data.data.current.temperature);
+          setFeelsLike(data.data.current.feelslike);
+          setDescription(data.data.current.weather_descriptions[0]);
+        });
     });
   }, []);
 

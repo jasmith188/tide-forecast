@@ -32,7 +32,7 @@ const Tide = ({ lat, lng }) => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       fetch(
-        `https://api.worldweatheronline.com/premium/v1/marine.ashx?key=${APIKEY}&q=${position.coords.latitude},${position.coords.longitude}&format=json&includelocation=yes&tide=yes`
+        `http://api.worldweatheronline.com/premium/v1/marine.ashx?key=${APIKEY}&q=${position.coords.latitude},${position.coords.longitude}&format=json&includelocation=yes&tide=yes`
       )
         .then((res) => res.json())
         .then((data) => {
