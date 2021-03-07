@@ -17,7 +17,7 @@ const CurrentWeather = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       axios
         .get(
-          `http://api.weatherstack.com/current?access_key=da3519b8084af6fd6aab249e61aa62f0&query=${position.coords.latitude},${position.coords.longitude}&units=f`
+          `https://api.weatherstack.com/current?access_key=da3519b8084af6fd6aab249e61aa62f0&query=${position.coords.latitude},${position.coords.longitude}&units=f`
         )
         // .then((res) => )
         .then((data) => {
