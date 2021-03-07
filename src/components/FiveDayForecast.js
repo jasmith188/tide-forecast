@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './FiveDayForecast.css';
 let APIKEY = 'a23515e97824cfc37248b2f2e48c0c37';
 
+const timestamp = require('time-stamp');
+
 const FourDayForecast = () => {
   const [dayOneDate, setDayOneDate] = useState('');
   const [dayOneIcon, setDayOneIcon] = useState('');

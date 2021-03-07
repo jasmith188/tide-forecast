@@ -18,8 +18,6 @@ const Tide = ({ lat, lng }) => {
   const [secondDate, setSecondDate] = useState('');
   const [thirdDate, setThirdDate] = useState('');
   const [fourthDate, setFourthDate] = useState('');
-  const [latLng, setLatLng] = useState({ lat: 0, lng: 0 });
-  const [prevLatLng, setPrevLatLng] = useState({ lat: 0, lng: 0 });
 
   // useEffect(() => {
   //   navigator.geolocation.getCurrentPosition((geo) => {
@@ -53,7 +51,6 @@ const Tide = ({ lat, lng }) => {
           setSecondDate(data.data.weather[0].date);
           setThirdDate(data.data.weather[0].date);
           setFourthDate(data.data.weather[0].date);
-          setPrevLatLng(latLng);
           console.log(position);
           setFirstDate(timestamp('MM/DD'));
           setSecondDate(timestamp('MM/DD'));

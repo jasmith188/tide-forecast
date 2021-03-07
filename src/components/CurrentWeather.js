@@ -25,7 +25,8 @@ const CurrentWeather = () => {
           setCurrentTemp(data.main.temp);
           setFeelsLike(data.main.feels_like);
           setDescription(data.weather[0].description);
-        });
+        })
+        .catch((error) => console.log('error', error));
     });
   }, []);
 
