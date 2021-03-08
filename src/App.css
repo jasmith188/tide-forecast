@@ -8,9 +8,9 @@
 }
 
 .app__title {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 40px;
+  margin-top: 10px;
+  padding-bottom: 150px;
+  font-size: 60px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }

@@ -10,7 +10,7 @@ function App() {
     <div className="app">
       <div className="app__right">
         <div className="app__header" />
-        <h1 className="app__title">TideCast</h1>
+        <h1 className="app__title">Tide Forecast</h1>
         <CurrentWeather />
       </div>
       <div className="app__left">
