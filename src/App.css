@@ -1,7 +1,10 @@
 .app {
   display: flex;
   justify-content: space-evenly;
+  background-image: url('https://thumbs.dreamstime.com/b/background-tropical-beach-sea-palm-trees-vector-flat-design-illustration-vertical-layout-70761147.jpg');
   /* padding: 20px; */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .app__title {
@@ -9,6 +12,7 @@
   margin-bottom: 20px;
   font-size: 40px;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 .app__tideHeader {
   margin-top: 20px;
@@ -21,6 +25,13 @@
 }
 
 @media (max-width: 520px) {
+  .app {
+    flex-direction: column;
+  }
+}
+
+/* Iphone 12 Screen */
+@media (max-width: 350px) {
   .app {
     flex-direction: column;
   }
