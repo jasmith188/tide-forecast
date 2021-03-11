@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './FiveDayForecast.css';
+import moment from 'moment';
 let APIKEY = 'a23515e97824cfc37248b2f2e48c0c37';
 
-// const timestamp = require('time-stamp');
+const timestamp = require('time-stamp');
 // const months = require('months');
 
 const FourDayForecast = ({ dailyWeather }) => {
@@ -11,11 +12,11 @@ const FourDayForecast = ({ dailyWeather }) => {
   const [dayOneMaxTemp, setDayOneMaxTemp] = useState('');
   const [dayOneLowTemp, setDayOneLowTemp] = useState('');
   const [dayOneDescription, setDayOneDescription] = useState('');
-  // const [dayTwoDate, setDayTwoDate] = useState('');
-  // const [dayTwoIcon, setDayTwoIcon] = useState('');
-  // const [dayTwoMaxTemp, setDayTwoMaxTemp] = useState('');
-  // const [dayTwoLowTemp, setDayTwoLowTemp] = useState('');
-  // const [dayTwoDescription, setDayTwoDescription] = useState('');
+  const [dayTwoDate, setDayTwoDate] = useState('');
+  const [dayTwoIcon, setDayTwoIcon] = useState('');
+  const [dayTwoMaxTemp, setDayTwoMaxTemp] = useState('');
+  const [dayTwoLowTemp, setDayTwoLowTemp] = useState('');
+  const [dayTwoDescription, setDayTwoDescription] = useState('');
   // const [dayThreeDate, setDayThreeDate] = useState('');
   // const [dayThreeIcon, setDayThreeIcon] = useState('');
   // const [dayThreeMaxTemp, setDayThreeMaxTemp] = useState('');
@@ -42,11 +43,11 @@ const FourDayForecast = ({ dailyWeather }) => {
           setDayOneMaxTemp(data.daily[1].temp.max);
           setDayOneLowTemp(data.daily[1].temp.min);
           setDayOneDescription(data.daily[1].weather[0].description);
-          // setDayTwoDate(data.daily[2].dt);
-          // setDayTwoIcon(data.daily[2].weather[0].icon);
-          // setDayTwoMaxTemp(data.daily[2].temp.max);
-          // setDayTwoLowTemp(data.daily[2].temp.min);
-          // setDayTwoDescription(data.daily[2].weather[0].description);
+          setDayTwoDate(data.daily[2].dt);
+          setDayTwoIcon(data.daily[2].weather[0].icon);
+          setDayTwoMaxTemp(data.daily[2].temp.max);
+          setDayTwoLowTemp(data.daily[2].temp.min);
+          setDayTwoDescription(data.daily[2].weather[0].description);
           // setDayThreeDate(data.daily[3].dt);
           // setDayThreeIcon(data.daily[3].weather[0].icon);
           // setDayThreeMaxTemp(data.daily[3].temp.max);
@@ -57,8 +58,13 @@ const FourDayForecast = ({ dailyWeather }) => {
           // setDayFourMaxTemp(data.daily[4].temp.max);
           // setDayFourLowTemp(data.daily[4].temp.min);
           // setDayFourDescription(data.daily[4].weather[0].description);
-          // setDayOneDate(timestamp('MM/DD'));
+          setDayOneDate(timestamp('MM/DD'));
           // setDayTwoDate(timestamp('MM/DD'));
+          let setDayTwoDate = moment(new Date(1615482000 * 1000)).format(
+            'MM/DD/YYYY hh:MM'
+          );
+          //                           -----------^^^^^^^------------
+          // console.log(newDate);
         })
         .catch((error) => console.log('error', error));
     });
@@ -81,27 +87,23 @@ const FourDayForecast = ({ dailyWeather }) => {
 
   return (
     <div className="fourDayForecast">
-      {dailyWeather.map(
-        (dayOneDate, dayOneIcon, dayOneMaxTemp, dayOneLowTemp) => (
-          <div className="fourDayForecast__card">
-            <div className="fourDayForecast__title">4 Day Forecast</div>
-            <h2 className="fourDayForecast__date">{dayOneDate}</h2>
-            <h3 className="fourDayForecast__icon">{dayOneIcon}</h3>
-            <h3 className="fourDayForecast__maxTemp">
-              {Math.round(dayOneMaxTemp)}
-            </h3>
-            <h3 className="fourDayForecast__minTemp">
-              {Math.round(dayOneLowTemp)}
-            </h3>
-            <h4 className="fourDayForecast__description">
-              {dayOneDescription}
-            </h4>
-          </div>
-        )
-      )}
+      <div className="fourDayForecast__card">
+        <div className="fourDayForecast__title">4 Day Forecast</div>
+        <h2 className="fourDayForecast__date">{dayOneDate}</h2>
+        <h3 className="fourDayForecast__icon">{dayOneIcon}</h3>
+        <h3 className="fourDayForecast__maxTemp">
+          {Math.round(dayOneMaxTemp)}
+        </h3>
+        <h3 className="fourDayForecast__minTemp">
+          {Math.round(dayOneLowTemp)}
+        </h3>
+        <h4 className="fourDayForecast__description">{dayOneDescription}</h4>
+      </div>
 
-      {/* <div className="fourDayForecast__card">
-        <h2 className="fourDayForecast__date">{dayTwoDate}</h2>
+      <div className="fourDayForecast__card">
+        <h2 className="fourDayForecast__date">
+          {moment(dayTwoDate).format('MMM')}
+        </h2>
         <h3 className="fourDayForecast__icon">{dayTwoIcon}</h3>
         <h3 className="fourDayForecast__maxTemp">
           {Math.round(dayTwoMaxTemp)}
@@ -111,7 +113,7 @@ const FourDayForecast = ({ dailyWeather }) => {
         </h3>
         <h4 className="fourDayForecast__description">{dayTwoDescription}</h4>
       </div>
-      <div className="fourDayForecast__card">
+      {/* <div className="fourDayForecast__card">
         <h2 className="fourDayForecast__date">{dayThreeDate}</h2>
         <h3 className="fourDayForecast__icon">{dayThreeIcon}</h3>
         <h3 className="fourDayForecast__maxTemp">
