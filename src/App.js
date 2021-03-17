@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import CurrentWeather from './components/CurrentWeather';
-import FiveDayForecast from './components/FiveDayForecast';
+// import FiveDayForecast from './components/FiveDayForecast';
 // import CitySelector from './CitySelector';
 import TideFetch from './components/TideFetch';
 
@@ -17,7 +17,7 @@ function App() {
         <div />
         <h3 className="app__tideHeader">Check out your Local Tide Info!</h3>
         <TideFetch />
-        <FiveDayForecast />
+        {/* <FiveDayForecast /> */}
       </div>
       {/* <CitySelector /> */}
     </div>

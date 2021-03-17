@@ -28,6 +28,7 @@ const CurrentWeather = () => {
           setCurrentTemp(data.data.current.temperature);
           setFeelsLike(data.data.current.feelslike);
           setDescription(data.data.current.weather_descriptions[0]);
+          // setHigh(data.data.daily[0])
         });
     });
   }, []);
@@ -37,16 +38,17 @@ const CurrentWeather = () => {
       <div className="currentWeather__card">
         {/* <h1 className="currentWeather__title">Current Weather for</h1> */}
         <h2 className="currentWeather__city">📍{city}</h2>
-        <p>{description}</p>
-        <p>{Math.round(currentTemp)} F</p>
+        <div className="currentWeather__description">{description}</div>
+        <p className="currentWeather__currentTemp">
+          {Math.round(currentTemp)} F
+        </p>
         <img
           className="currentWeather__icon"
           // src={`https://openweathermap.org/img/w/${currentIcon}.png`}
           src={currentIcon}
           alt="icon right here"
         />
-        <div className="currentWeather__descriptions">
-          
+        <div className="currentWeather__feelsLike">
           <p>Feels Like: {Math.round(feelsLike)} F</p>
         </div>
       </div>
